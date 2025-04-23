@@ -101,6 +101,8 @@ module.exports = class userController {
     try {
       connect.query(query, values, function (err, results) {
         if (err) {
+          if(err.code === "ER_ROW_IS_REFERENCED_2")
+            return res.status(400).json({error:"Usuário não pode ser excluído, pois esta vinculado a um evento"})
           console.error(err);
           return res.status(500).json({ error: "Erro interno do servidor" });
         }

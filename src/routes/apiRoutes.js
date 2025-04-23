@@ -8,7 +8,7 @@ const ingressoController = require('../controllers/ingressoController');
 router.post('/user',userController.createUser);
 router.get('/user', userController.getAllUsers);
 router.put('/user', userController.updateUser);
-router.delete('/user/:cpf', userController.deleteUser);
+router.delete('/user/:id', userController.deleteUser);
 router.post('/login', userController.loginUser);
 
 router.post('/org',orgController.createOrg);
@@ -29,5 +29,6 @@ router.post('/ingresso', ingressoController.createIngresso);
 router.get('/ingresso', ingressoController.getAllIngressos);
 router.put('/ingresso', ingressoController.updateIngresso);
 router.delete('/ing/:id_ingresso', ingressoController.deleteIngresso);
+router.get('/ingresso/evento/:id', ingressoController.getByIdEvento);
 
 module.exports = router;
