@@ -25,4 +25,3 @@ module.exports = async function validateCpf(cpf, userId = null) {
     });
   });
 };
-
