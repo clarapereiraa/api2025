@@ -17,6 +17,8 @@ begin
 
     --verificar se a data do evento é menor que a atual
     if date(v_data_evento) < curdate() then
+        delete from ingresso_compra where fk_id_compra = p_id_compra;
+        delete from compra where id_compra = p_id_compra;
         signal sqlstate '45000'
         set message_text = 'ERRO_PROCEDURE - Não é possível comprar ingressos para evento passados.';
 end if;
