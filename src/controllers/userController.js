@@ -156,7 +156,7 @@ module.exports = class userController {
           return res.status(401).json({ error: "Senha incorreta" });
         }
 
-        const token = jwt.sign({id: user.id_usuario}, process.env.SECRET, {expiresIn: "1h"})
+        const token = jwt.sign({id: user.id_usuario}, process.env.SECRET, {expiresIn: "30s"})
 
         //Remove um atributo de um obj
         delete user.password;
