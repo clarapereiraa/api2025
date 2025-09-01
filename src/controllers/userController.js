@@ -129,7 +129,7 @@ module.exports = class userController {
   // Método de Login - Implementar
   static async loginUser(req, res) {
     const { email, password } = req.body;
-
+    console.log(req.body)
     if (!email || !password) {
       return res.status(400).json({ error: "Email e senha são obrigatórios" });
     }
@@ -156,7 +156,7 @@ module.exports = class userController {
           return res.status(401).json({ error: "Senha incorreta" });
         }
 
-        const token = jwt.sign({id: user.id_usuario}, process.env.SECRET, {expiresIn: "30s"})
+        const token = jwt.sign({id: user.id_usuario}, process.env.SECRET, {expiresIn: "5m"})
 
         //Remove um atributo de um obj
         delete user.password;
